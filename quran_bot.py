@@ -425,7 +425,10 @@ async def main():
     scheduler.start()
 
     print(f"✅ ربات آماده! {len(subscribers)} مشترک | {len(PDF_PARAGRAPHS)} پاراگراف از کتاب")
-    await app.run_polling()
+    await app.initialize()
+    await app.start()
+    await app.updater.start_polling()
+    await asyncio.Event().wait()
     
  
 if __name__ == "__main__":
