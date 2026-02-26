@@ -427,8 +427,12 @@ async def main():
     print(f"✅ ربات آماده! {len(subscribers)} مشترک | {len(PDF_PARAGRAPHS)} پاراگراف از کتاب")
     await app.run_polling()
     
- if __name__ == "__main__":
+ 
+if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
     loop = asyncio.new_event_loop()
     asyncio.set_event_loop(loop)
-    loop.run_until_complete(main())
+    try:
+        loop.run_until_complete(main())
+    finally:
+        loop.close()
