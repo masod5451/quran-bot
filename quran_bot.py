@@ -429,4 +429,10 @@ async def main():
     
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
-    asyncio.run(main())
+    import sys
+    if sys.platform == "win32":
+        import nest_asyncio
+        nest_asyncio.apply()
+        asyncio.get_event_loop().run_until_complete(main())
+    else:
+        asyncio.run(main())
