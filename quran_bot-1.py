@@ -14,7 +14,7 @@ from apscheduler.schedulers.asyncio import AsyncIOScheduler
 # ============================================================
 # 🔧 تنظیمات - اینجا رو پر کن
 # ============================================================
-BOT_TOKEN = "8662765894:AAEVym3fIjTEEfNDPnmDusP9ZxqAQULIEYM"
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 MY_CHANNEL = "@telavat1403"
 CHANNEL_MIN_ID = 1
 CHANNEL_MAX_ID = 1179
