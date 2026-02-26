@@ -426,9 +426,7 @@ async def main():
 
     print(f"✅ ربات آماده! {len(subscribers)} مشترک | {len(PDF_PARAGRAPHS)} پاراگراف از کتاب")
     await app.run_polling()
-
+    
 if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
-    import nest_asyncio
-    nest_asyncio.apply()
-    asyncio.get_event_loop().run_until_complete(main())
+    asyncio.run(main())
