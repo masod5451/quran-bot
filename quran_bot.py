@@ -427,12 +427,8 @@ async def main():
     print(f"✅ ربات آماده! {len(subscribers)} مشترک | {len(PDF_PARAGRAPHS)} پاراگراف از کتاب")
     await app.run_polling()
     
-if __name__ == "__main__":
+ if __name__ == "__main__":
     logging.basicConfig(level=logging.WARNING)
-    import sys
-    if sys.platform == "win32":
-        import nest_asyncio
-        nest_asyncio.apply()
-        asyncio.get_event_loop().run_until_complete(main())
-    else:
-        asyncio.run(main())
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    loop.run_until_complete(main())
