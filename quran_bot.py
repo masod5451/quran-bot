@@ -661,7 +661,7 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         await update.message.reply_text("❌ این دستور فقط برای ادمین است.")
         return
-    await update.message.reply_text("امار مشارکت در ربات...")
+    await update.message.reply_text
 
 # ============================================================
 # 🚀 اجرا
