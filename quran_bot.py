@@ -540,7 +540,7 @@ async def job_every_4_hours(bot: Bot):
             await send_text_to_all(bot, get_random_dhikr())
 
     
-     elif content_type == "dua":
+    elif content_type == "dua":
          await send_text_to_all(bot, get_random_dua())
 
     elif content_type == "channel":
