@@ -552,6 +552,8 @@ async def job_every_4_hours(bot: Bot):
                 continue
         if not success:
             await send_text_to_all(bot, get_random_dhikr())
+
+
    elif content_type == "dua":
        await send_text_to_all(bot, get_random_dua())
 
