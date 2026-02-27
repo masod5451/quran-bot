@@ -19,7 +19,7 @@ MY_CHANNEL = "@telavat1403"
 CHANNEL_MIN_ID = 1
 CHANNEL_MAX_ID = 1179
 ADMIN_ID = 615999796  # آیدی عددی خودت اینجا
-#PDF_FOLDER = "books"
+PDF_FOLDER = "books"
 USERS_FILE = "users.json"
 TIMEZONE = "Asia/Tehran"
 
@@ -668,7 +668,7 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ============================================================
 async def main():
     print("🚀 ربات در حال راه‌اندازی...")
-    os.makedirs(exist_ok=True)
+    os.makedirs(PDF_FOLDER,exist_ok=True)
 
     app = Application.builder().token(BOT_TOKEN).build()
 
