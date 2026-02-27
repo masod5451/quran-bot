@@ -19,7 +19,7 @@ MY_CHANNEL = "@telavat1403"
 CHANNEL_MIN_ID = 1
 CHANNEL_MAX_ID = 1179
 ADMIN_ID = 615999796  # آیدی عددی خودت اینجا
-PDF_FOLDER = "books"
+#PDF_FOLDER = "books"
 USERS_FILE = "users.json"
 TIMEZONE = "Asia/Tehran"
 
@@ -630,7 +630,8 @@ async def now_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
          #   await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
             
     elif content_type == "dua":
-        content = get_random_dua()
+        #content = get_random_dua()
+        await update.message.reply_text(get_random_dua(), parse_mode="Markdown")
         
     elif content_type == "channel":
         success = False
