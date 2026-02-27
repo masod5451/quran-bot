@@ -355,43 +355,43 @@ def get_random_dua() -> str:
 # ============================================================
 # 📚 منبع ۳ - از PDF کتاب
 # ============================================================
-def load_pdf_paragraphs() -> list:
-    paragraphs = []
-    if not os.path.exists(PDF_FOLDER):
-        os.makedirs(PDF_FOLDER)
-        return paragraphs
+#def load_pdf_paragraphs() -> list:
+ #   paragraphs = []
+  #  if not os.path.exists(PDF_FOLDER):
+   #     os.makedirs(PDF_FOLDER)
+    #    return paragraphs
 
-    for filename in os.listdir(PDF_FOLDER):
-        if filename.endswith(".pdf"):
-            try:
-                reader = PdfReader(os.path.join(PDF_FOLDER, filename))
-                book_name = filename.replace(".pdf", "")
-                full_text = ""
-                for page in reader.pages:
-                    text = page.extract_text()
-                    if text:
-                        full_text += text + "\n"
+  #  for filename in os.listdir(PDF_FOLDER):
+   #     if filename.endswith(".pdf"):
+    #        try:
+     #           reader = PdfReader(os.path.join(PDF_FOLDER, filename))
+      #          book_name = filename.replace(".pdf", "")
+       #         full_text = ""
+        #        for page in reader.pages:
+         #           text = page.extract_text()
+          #          if text:
+           #             full_text += text + "\n"
+#
+ #               raw_paragraphs = [p.strip() for p in full_text.split("\n\n") if len(p.strip()) > 80]
+  #              for p in raw_paragraphs:
+   #                 clean = re.sub(r'\s+', ' ', p).strip()
+    #                if 80 < len(clean) < 600:
+     #                   paragraphs.append({"text": clean, "book": book_name})
+      #      except Exception as e:
+       #         print(f"❌ خطا در خواندن {filename}: {e}")
 
-                raw_paragraphs = [p.strip() for p in full_text.split("\n\n") if len(p.strip()) > 80]
-                for p in raw_paragraphs:
-                    clean = re.sub(r'\s+', ' ', p).strip()
-                    if 80 < len(clean) < 600:
-                        paragraphs.append({"text": clean, "book": book_name})
-            except Exception as e:
-                print(f"❌ خطا در خواندن {filename}: {e}")
+    #return paragraphs
 
-    return paragraphs
+#PDF_PARAGRAPHS = load_pdf_paragraphs()
 
-PDF_PARAGRAPHS = load_pdf_paragraphs()
-
-def get_random_book_paragraph() -> str:
-    if not PDF_PARAGRAPHS:
-        return None
-    p = random.choice(PDF_PARAGRAPHS)
-    return (
-        f"📚 *از کتاب: {p['book']}*\n\n"
-        f"{p['text']}"
-    )
+#def get_random_book_paragraph() -> str:
+ #   if not PDF_PARAGRAPHS:
+  #      return None
+  #  p = random.choice(PDF_PARAGRAPHS)
+   # return (
+    #    f"📚 *از کتاب: {p['book']}*\n\n"
+     #   f"{p['text']}"
+    #)
 
 # ============================================================
 # 🌅 اذکار صبح
@@ -515,11 +515,11 @@ async def forward_to_all(bot: Bot, message_id: int):
 # ============================================================
 # ⏰ جاب‌های زمان‌بندی شده
 # ============================================================
-CONTENT_TYPES = ["quran", "dhikr", "book", "channel","dua"]
+CONTENT_TYPES = ["quran", "dhikr","channel","dua"]
 last_type_index = [0]
 
 async def job_every_4_hours(bot: Bot):
-    content_type = CONTENT_TYPES[last_type_index[0] % 5]
+    content_type = CONTENT_TYPES[last_type_index[0] % 4]
     last_type_index[0] += 1
     
     print(f"📤 ارسال نوع: {content_type} | {datetime.now().strftime('%H:%M')}")
@@ -532,12 +532,12 @@ async def job_every_4_hours(bot: Bot):
         content = get_random_dhikr()
         await send_text_to_all(bot, content)
 
-    elif content_type == "book":
-        content = get_random_book_paragraph()
-        if content:
-            await send_text_to_all(bot, content)
-        else:
-            await send_text_to_all(bot, get_random_dhikr())
+   # elif content_type == "book":
+    #    content = get_random_book_paragraph()
+       # if content:
+        #    await send_text_to_all(bot, content)
+        #else:
+         #   await send_text_to_all(bot, get_random_dhikr())
 
     
     elif content_type == "dua":
@@ -622,15 +622,16 @@ async def now_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(get_random_quran_verse(), parse_mode="Markdown")
     elif content_type == "dhikr":
         await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
-    elif content_type == "book":
-        content = get_random_book_paragraph()
-        if content:
-            await update.message.reply_text(content, parse_mode="Markdown")
-        else:
-            await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
+    #elif content_type == "book":
+     #   content = get_random_book_paragraph()
+      #  if content:
+       #     await update.message.reply_text(content, parse_mode="Markdown")
+        #else:
+         #   await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
             
     elif content_type == "dua":
         content = get_random_dua()
+        
     elif content_type == "channel":
         success = False
         for _ in range(5):
