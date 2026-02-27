@@ -522,7 +522,7 @@ async def job_every_4_hours(bot: Bot):
     content_type = CONTENT_TYPES[last_type_index[0] % 4]
     last_type_index[0] += 1
     elif content_type == "dua":
-    await send_text_to_all(bot, get_random_dua())
+        await send_text_to_all(bot, get_random_dua())
 
     print(f"📤 ارسال نوع: {content_type} | {datetime.now().strftime('%H:%M')}")
 
