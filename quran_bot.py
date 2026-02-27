@@ -684,7 +684,7 @@ async def main():
     scheduler.add_job(job_night_adhkar, "cron", hour=0, minute=0, kwargs={"bot": app.bot})
     scheduler.start()
 
-    print(f"✅ ربات آماده! {len(subscribers)} مشترک | {len(PDF_PARAGRAPHS)} پاراگراف از کتاب")
+    print(f"✅ ربات آماده! {len(subscribers)} مشترک |")
     await app.initialize()
     await app.start()
     await app.updater.start_polling()
