@@ -624,12 +624,13 @@ async def now_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
     elif content_type == "book":
         content = get_random_book_paragraph()
-    elif content_type == "dua":
-        content = get_random_dua()
         if content:
             await update.message.reply_text(content, parse_mode="Markdown")
         else:
             await update.message.reply_text(get_random_dhikr(), parse_mode="Markdown")
+            
+    elif content_type == "dua":
+        content = get_random_dua()
     elif content_type == "channel":
         success = False
         for _ in range(5):
