@@ -541,7 +541,8 @@ async def job_every_4_hours(bot: Bot):
 
     
     elif content_type == "dua":
-         await send_text_to_all(bot, get_random_dua())
+         content = get_random_dua()
+         await send_text_to_all(bot, content)
 
     elif content_type == "channel":
         # تلاش برای فوروارد از کانال
