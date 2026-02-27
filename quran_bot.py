@@ -668,7 +668,7 @@ async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # ============================================================
 async def main():
     print("🚀 ربات در حال راه‌اندازی...")
-    os.makedirs(PDF_FOLDER, exist_ok=True)
+    os.makedirs(exist_ok=True)
 
     app = Application.builder().token(BOT_TOKEN).build()
 
