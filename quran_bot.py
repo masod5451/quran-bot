@@ -539,6 +539,10 @@ async def job_every_4_hours(bot: Bot):
         else:
             await send_text_to_all(bot, get_random_dhikr())
 
+    
+     elif content_type == "dua":
+         await send_text_to_all(bot, get_random_dua())
+
     elif content_type == "channel":
         # تلاش برای فوروارد از کانال
         success = False
@@ -553,9 +557,6 @@ async def job_every_4_hours(bot: Bot):
         if not success:
             await send_text_to_all(bot, get_random_dhikr())
 
-
-   elif content_type == "dua":
-       await send_text_to_all(bot, get_random_dua())
 
     print(f"✅ ارسال شد | {len(subscribers)} مشترک")
 
