@@ -672,7 +672,7 @@ async def main():
     app.add_handler(CommandHandler("stats", stats_command))
 
     scheduler = AsyncIOScheduler(timezone=TIMEZONE)
-    scheduler.add_job(job_every_4_hours, "interval", hours=3, ..., kwargs={"bot": app.bot})
+    scheduler.add_job(job_every_4_hours, "interval", hours=3, kwargs={"bot": app.bot})
     scheduler.add_job(job_morning_adhkar, "cron", hour=7, minute=0, kwargs={"bot": app.bot})
     scheduler.add_job(job_night_adhkar, "cron", hour=0, minute=0, kwargs={"bot": app.bot})
     scheduler.start()
