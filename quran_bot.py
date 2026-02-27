@@ -615,7 +615,7 @@ async def stop_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("تو عضو نبودی! /start بزن.")
 
 async def now_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    content_type = CONTENT_TYPES[last_type_index[0] % 5]
+    content_type = CONTENT_TYPES[last_type_index[0] % 4]
     last_type_index[0] += 1
 
     if content_type == "quran":
