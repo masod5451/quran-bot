@@ -656,12 +656,12 @@ async def morning_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def night_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(NIGHT_ADHKAR, parse_mode="Markdown")
 
-
 async def stats_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     if update.effective_user.id != ADMIN_ID:
         await update.message.reply_text("❌ این دستور فقط برای ادمین است.")
         return
-    await update.message.reply_text
+    await update.message.reply_text(f"📊 مشترکین: {len(subscribers)} نفر")
+
 
 # ============================================================
 # 🚀 اجرا
