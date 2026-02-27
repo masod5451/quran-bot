@@ -519,10 +519,9 @@ CONTENT_TYPES = ["quran", "dhikr", "book", "channel","dua"]
 last_type_index = [0]
 
 async def job_every_4_hours(bot: Bot):
-    content_type = CONTENT_TYPES[last_type_index[0] % 4]
+    content_type = CONTENT_TYPES[last_type_index[0] % 5]
     last_type_index[0] += 1
-    elif content_type == "dua":
-        await send_text_to_all(bot, get_random_dua())
+    
 
     print(f"📤 ارسال نوع: {content_type} | {datetime.now().strftime('%H:%M')}")
 
@@ -554,6 +553,8 @@ async def job_every_4_hours(bot: Bot):
                 continue
         if not success:
             await send_text_to_all(bot, get_random_dhikr())
+    elif content_type == "dua":
+        await send_text_to_all(bot, get_random_dua())
 
     print(f"✅ ارسال شد | {len(subscribers)} مشترک")
 
