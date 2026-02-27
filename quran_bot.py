@@ -11,7 +11,7 @@ from telegram import Bot, Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 from apscheduler.schedulers.asyncio import AsyncIOScheduler
 
-# ============================================================
+# ===========================================================
 # 🔧 تنظیمات - اینجا رو پر کن
 # ============================================================
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
